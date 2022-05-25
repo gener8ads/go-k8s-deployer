@@ -36,8 +36,8 @@ else
   INPUT_FILES=$(echo $INPUT_FILE | sed 's/[,;]/ /g')
   for FILE in $INPUT_FILES
   do
-    echo "Running jsonnet $OUTPUT_DIR $INPUT_FILE"
-    jsonnet $EXTERNAL_PARAMS_ARG $OUTPUT_DIR $INPUT_FILE
+    echo "Running jsonnet $EXTERNAL_PARAMS_ARG $OUTPUT_DIR $FILE"
+    jsonnet $EXTERNAL_PARAMS_ARG $OUTPUT_DIR $FILE
   done
 fi
 
