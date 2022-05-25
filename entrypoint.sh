@@ -8,7 +8,7 @@ then
   echo "Must specify ARG_OUTPUT_DIR env var"
   exit 1
 else
-  if [! -d "$ARG_OUTPUT_DIR"] 
+  if [ ! -d "$ARG_OUTPUT_DIR"] 
   then
     mkdir -p $ARG_OUTPUT_DIR
   fi
