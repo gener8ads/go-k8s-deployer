@@ -8,7 +8,7 @@ then
   echo "Must specify ARG_OUTPUT_DIR env var"
   exit 1
 else
-  if [! -d "$ARG_OUTPUT_DIR"] 
+  if [ ! -d "$ARG_OUTPUT_DIR"] 
   then
     mkdir -p $ARG_OUTPUT_DIR
   fi
@@ -36,8 +36,8 @@ else
   INPUT_FILES=$(echo $INPUT_FILE | sed 's/[,;]/ /g')
   for FILE in $INPUT_FILES
   do
-    echo "Running jsonnet $OUTPUT_DIR $INPUT_FILE"
-    jsonnet $EXTERNAL_PARAMS_ARG $OUTPUT_DIR $INPUT_FILE
+    echo "Running jsonnet $EXTERNAL_PARAMS_ARG $OUTPUT_DIR $FILE"
+    jsonnet $EXTERNAL_PARAMS_ARG $OUTPUT_DIR $FILE
   done
 fi
 
