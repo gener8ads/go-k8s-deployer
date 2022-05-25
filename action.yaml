@@ -1,0 +1,31 @@
+name: 'Action for processing & deploying built projects to Kubernetes'
+description: 'Action for processing & deploying built projects to Kubernetes'
+author: 'Duncan Allan <duncan@gener8ads.com>'
+inputs:
+  KUBE_CONFIG:
+    description: |
+      Kubernetes configuration file, base64 encoded. Required
+    required: true
+  INPUT_FILE:
+    description: |
+      1 or more Jsonnet files that will be evaluated. Use either of comma, space 
+      or semicolon as argument separator. Required
+    required: true
+  ARG_OUTPUT_DIR:
+    description: |
+      Output directory for the generated output files. Required
+    required: true
+  INPUT_PARAMS:
+    description: |
+      Arguments for `jsonnet` that get mapped to `--ext-str` arguments. 
+      `env=staging;version=1` becomes `--ext-str env=staging --ext-str version=1`. 
+      Use either of comma, space or semicolon as argument separator.
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.KUBE_CONFIG }}
+    - ${{ inputs.INPUT_FILE }}
+    - ${{ inputs.ARG_OUTPUT_DIR }}
+    - ${{ inputs.INPUT_PARAMS }}
