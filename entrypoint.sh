@@ -43,6 +43,7 @@ fi
 
 # Once generated, login w/ kubectl & then apply the generated output
 if [ ! -z "${KUBE_CONFIG}" ]; then
+    mkdir -p $HOME/.kube
     echo "$KUBE_CONFIG" | base64 -d > $HOME/.kube/config
 else
     echo "No KUBE_CONFIG found. Please provide one. Exiting..."
