@@ -21,10 +21,6 @@ inputs:
       `env=staging;version=1` becomes `--ext-str env=staging --ext-str version=1`. 
       Use either of comma, space or semicolon as argument separator.
     required: false
-  GCP_KEY:
-    description: |
-      Service account key for pulling the image from GCR
-    required: true
 runs:
   using: 'docker'
   image: 'docker://duncangener8ads/go-k8s-deployer:v0.1.0'
