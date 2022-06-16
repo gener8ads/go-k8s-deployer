@@ -24,6 +24,10 @@ inputs:
 runs:
   using: 'docker'
   image: 'docker://eu.gcr.io/gener8/go-k8s-deployer:latest'
+  credentials:
+    registry: eu.gcr.io
+    username: _json_key
+    password: ${{ inputs.GCP_KEY }}
   args:
     - ${{ inputs.KUBE_CONFIG }}
     - ${{ inputs.INPUT_FILE }}
