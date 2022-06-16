@@ -23,7 +23,7 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://eu.gcr.io/gener8/go-k8s-deployer:latest'
   args:
     - ${{ inputs.KUBE_CONFIG }}
     - ${{ inputs.INPUT_FILE }}
